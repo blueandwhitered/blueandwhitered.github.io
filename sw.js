@@ -1,4 +1,4 @@
-importScripts('./params.js?v=personal-site-1');
+importScripts('./params.js?v=personal-site-5');
 
 self.addEventListener('install', () => {
   self.skipWaiting();

