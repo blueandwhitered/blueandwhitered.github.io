@@ -36,21 +36,6 @@
   document.head.prepend(base);
 
   window.__landingParamsReady = (async () => {
-    const isRoot = incoming.pathname === root.pathname
-      || incoming.pathname === root.pathname + 'index.html';
-    if (isRoot && !incoming.search) {
-      const saved = await snapshot();
-      if (saved?.url) {
-        const target = new URL(saved.url);
-        const targetIsRoot = target.pathname === root.pathname
-          || target.pathname === root.pathname + 'index.html';
-        if (target.origin === root.origin && target.pathname.startsWith(root.pathname)
-            && (!targetIsRoot || target.search)) {
-          location.replace(target.href);
-          return new Promise(() => {});
-        }
-      }
-    }
     await save(incoming.href);
     window.__savedDownloadParams = incoming.searchParams;
     history.replaceState(history.state, '', root.href);

