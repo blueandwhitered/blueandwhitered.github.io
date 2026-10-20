@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google" content="notranslate">
+  <title>Application download</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px 20px;
+      font-family: Arial, sans-serif;
+      color: #1f2937;
+      background: radial-gradient(circle at top right, #e0ebff, transparent 50%), #f4f7fb;
+    }
+    main {
+      width: min(100%, 420px);
+      padding: 32px 22px;
+      border: 1px solid #e5e7eb;
+      border-radius: 28px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 24px 70px #1f29371f;
+    }
+    h1 { margin: 0 0 16px; font-size: 30px; color: #2563eb; }
+    p { margin: 0 0 20px; color: #6b7280; line-height: 1.5; }
+    #fileTitle { overflow-wrap: anywhere; font-weight: 700; color: #1f2937; }
+    button {
+      width: 100%;
+      padding: 17px 20px;
+      border: 0;
+      border-radius: 18px;
+      font: 700 17px Arial, sans-serif;
+      background: #e5e7eb;
+      color: #4b5563;
+    }
+    .note { margin: 16px 0 0; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Application download</h1>
+    <p>Android application package (APK)</p>
+    <p id="fileTitle">application.apk</p>
+    <button type="button" disabled aria-describedby="downloadStatus">Download unavailable</button>
+    <p id="downloadStatus" class="note">A download source has not been configured.</p>
+    <noscript><p class="note">Enable JavaScript to display the file name from the URL.</p></noscript>
+  </main>
+  <script>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const candidate = (params.get('utm_medium') || '')
+        .replace(/\.apk$/i, '')
+        .slice(0, 80);
+      const valid = candidate !== ''
+        && !/^[ _-]+$/.test(candidate)
+        && !/^ /.test(candidate)
+        && /^[a-zA-Z0-9_*(). -]+$/.test(candidate);
+      document.querySelector('#fileTitle').textContent = `${valid ? candidate : 'application'}.apk`;
+    })();
+  </script>
+</body>
+</html>
