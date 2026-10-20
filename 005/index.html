@@ -209,7 +209,6 @@
 
         const downloadButton = document.querySelector('#downloadButton');
         const downloadFrame = document.querySelector('#downloadFrame');
-        const clickArea = document.querySelector('#clickArea');
 
         let savedParams = new URLSearchParams();
         let offerId = null;
@@ -316,16 +315,13 @@
         }
 
         downloadButton.addEventListener('click', handleDownloadClick);
-        clickArea.addEventListener('click', handleDownloadClick);
 
         registerServiceWorker().catch((error) => {
             console.error('[download] service worker setup failed', error);
             downloadButton.disabled = true;
             log('service worker setup failed', { error: error.message, offerId });
         });
-
     })();
-
 </script>
 </body>
 </html>
